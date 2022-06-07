@@ -122,7 +122,7 @@ std::map<int, PointsToGraph> readLoopInvariant(string fileName) {
 					cout << "\t\t" << fkIt->first << ": ";
 					for (Entry pointee : fkIt->second)
 					{
-						cout << pointee.getString();
+						cout << pointee.getString() << " ";
 					}
 
 					cout << "\t";
