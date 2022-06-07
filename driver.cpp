@@ -23,7 +23,11 @@ int main(int argc, char *argv[]) {
 
 	for(int i = 2; i < argc; ++i) {
 		cout << "parsing " << argv[i] << endl;
+		try {
 		readLoopInvariant(argv[i]);
+		} catch (const std::invalid_argument& ia) {
+			cout << argv[i] << " parsing failed" << endl;
+		}
 
 	}
 
