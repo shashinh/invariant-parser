@@ -24,7 +24,9 @@ public:
 
     virtual antlrcpp::Any visitEntry(RECParser::EntryContext *context) = 0;
 
-    virtual antlrcpp::Any visitClasses(RECParser::ClassesContext *context) = 0;
+    virtual antlrcpp::Any visitClazzes(RECParser::ClazzesContext *context) = 0;
+
+    virtual antlrcpp::Any visitClazz(RECParser::ClazzContext *context) = 0;
 
     virtual antlrcpp::Any visitBciKey(RECParser::BciKeyContext *context) = 0;
 

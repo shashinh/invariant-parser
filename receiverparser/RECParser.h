@@ -17,7 +17,7 @@ public:
   };
 
   enum {
-    RuleRecs = 0, RuleEntry = 1, RuleClasses = 2, RuleBciKey = 3
+    RuleRecs = 0, RuleEntry = 1, RuleClazzes = 2, RuleClazz = 3, RuleBciKey = 4
   };
 
   explicit RECParser(antlr4::TokenStream *input);
@@ -32,7 +32,8 @@ public:
 
   class RecsContext;
   class EntryContext;
-  class ClassesContext;
+  class ClazzesContext;
+  class ClazzContext;
   class BciKeyContext; 
 
   class  RecsContext : public antlr4::ParserRuleContext {
@@ -56,7 +57,7 @@ public:
     EntryContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     BciKeyContext *bciKey();
-    ClassesContext *classes();
+    ClazzesContext *clazzes();
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
@@ -65,19 +66,32 @@ public:
 
   EntryContext* entry();
 
-  class  ClassesContext : public antlr4::ParserRuleContext {
+  class  ClazzesContext : public antlr4::ParserRuleContext {
   public:
-    ClassesContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    ClazzesContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    std::vector<antlr4::tree::TerminalNode *> NUMS();
-    antlr4::tree::TerminalNode* NUMS(size_t i);
+    std::vector<ClazzContext *> clazz();
+    ClazzContext* clazz(size_t i);
 
 
     virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
    
   };
 
-  ClassesContext* classes();
+  ClazzesContext* clazzes();
+
+  class  ClazzContext : public antlr4::ParserRuleContext {
+  public:
+    ClazzContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *NUMS();
+
+
+    virtual antlrcpp::Any accept(antlr4::tree::ParseTreeVisitor *visitor) override;
+   
+  };
+
+  ClazzContext* clazz();
 
   class  BciKeyContext : public antlr4::ParserRuleContext {
   public:

@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
-#include "li/structs.h"
-#include "li/PointsToGraph.h"
+#include "ptgparser/structs.h"
+#include "ptgparser/PointsToGraph.h"
 
 using namespace std;
 

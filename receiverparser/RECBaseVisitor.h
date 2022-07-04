@@ -25,7 +25,11 @@ public:
     return visitChildren(ctx);
   }
 
-  virtual antlrcpp::Any visitClasses(RECParser::ClassesContext *ctx) override {
+  virtual antlrcpp::Any visitClazzes(RECParser::ClazzesContext *ctx) override {
+    return visitChildren(ctx);
+  }
+
+  virtual antlrcpp::Any visitClazz(RECParser::ClazzContext *ctx) override {
     return visitChildren(ctx);
   }
 
