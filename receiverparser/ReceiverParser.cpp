@@ -21,7 +21,7 @@ class ParseErrorListener : public BaseErrorListener
         }
 };
 
-map <int, string> readMethodIndices() {
+map <int, string> readClassIndices() {
 	map<int, string> ret;
 	char* classIndicesFileName = "invariants/ci.txt";
 
