@@ -18,13 +18,14 @@ enum EntryType {
 struct Entry {
     int caller = -1;
     int bci = -1;
+    int clazz = -1;
 
     EntryType type;
 
     string getString() {
         string res;
         if(type == Reference) {
-            res.append(to_string(caller)).append("-").append(to_string(bci));
+            res.append(to_string(caller)).append("-").append(to_string(bci).append(" type: ").append(to_string(clazz).append(";")));
         } else if (type == String) {
             res = "s";
         } else if (type == Constant) {
